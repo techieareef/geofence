@@ -58,18 +58,18 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       final responseData = json.decode(response.body);
       var userData = json.decode(responseData['data']);
-      print("@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-      print(userData);
-      print(userData['firstName']);
-      print(userData['mobileNo']);
-      print(userData['profilePicUrl']);
-      print(userData['profileKey']);
-      print(userData['password']);
-      print('############################');
+      // print("@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+      // print(userData);
+      // print(userData['firstName']);
+      // print(userData['mobileNo']);
+      // print(userData['profilePicUrl']);
+      // print(userData['profileKey']);
+      // print(userData['password']);
+      // print('############################');
 
 
       if (response.statusCode == HttpStatus.ok) {
-        print('login successful');
+        // print('login successful');
         setUserDetailsLocal(userData['firstName'], userData['mobileNo'],
             userData['profilePicUrl'],  userData['profileKey'],password);
         getUserDetails();
