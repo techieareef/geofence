@@ -22,8 +22,8 @@
 @import geocoder;
 #endif
 
-#if __has_include(<google_maps_flutter/GoogleMapsPlugin.h>)
-#import <google_maps_flutter/GoogleMapsPlugin.h>
+#if __has_include(<google_maps_flutter/FLTGoogleMapsPlugin.h>)
+#import <google_maps_flutter/FLTGoogleMapsPlugin.h>
 #else
 @import google_maps_flutter;
 #endif
@@ -34,8 +34,8 @@
 @import location;
 #endif
 
-#if __has_include(<shared_preferences/SharedPreferencesPlugin.h>)
-#import <shared_preferences/SharedPreferencesPlugin.h>
+#if __has_include(<shared_preferences/FLTSharedPreferencesPlugin.h>)
+#import <shared_preferences/FLTSharedPreferencesPlugin.h>
 #else
 @import shared_preferences;
 #endif
