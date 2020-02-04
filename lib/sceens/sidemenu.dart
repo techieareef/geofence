@@ -1,4 +1,5 @@
 import 'package:Area_finder/sceens/routing%20Constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 String username;
@@ -20,7 +21,7 @@ class _DrawersState extends State<Drawers> {
   _logout() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
-    print("Logou***********************");
+    print("Logout***********************");
     print(prefs.getString('profileKey'));
     print(prefs.getString('userName'));
     Navigator.popAndPushNamed(context, LoginScreenRoute);
@@ -30,16 +31,16 @@ class _DrawersState extends State<Drawers> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
 
-   print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
+//   print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&');
    setState(() {
      username=prefs.getString("userName");
      contact=prefs.getString("userId");
      userimage=prefs.getString("image");
      profilekey=prefs.getString("profileKey");
-     print(username);
-     print(contact);
-     print(prefs.getString("image"),);
-     print(prefs.getString("profileKey"),);
+//     print(username);
+//     print(contact);
+//     print(prefs.getString("image"),);
+//     print(prefs.getString("profileKey"),);
    });
 
 //    Navigator.popAndPushNamed(context, LoginScreenRoute);
@@ -48,21 +49,34 @@ class _DrawersState extends State<Drawers> {
   Widget build(BuildContext context) {
 
     return Drawer(
+
+      elevation: 5.0,
       child: ListView(
         children: <Widget>[
           //header
-          UserAccountsDrawerHeader(
-            accountName: Text(username!=null?username:"User name"),
-            accountEmail: Text(contact!=null?contact:"Contact"),
-            currentAccountPicture: GestureDetector(
-              child:CircleAvatar(
-                backgroundColor: Colors.grey,
-                backgroundImage:userimage!=null?NetworkImage(userimage):NetworkImage(
-                   "https://www.pngkey.com/png/full/270-2707230_i-am-a-founder-woman-user-icon.png"//                color: Colors.black,
+          Container(
+            height:  MediaQuery.of(context).size.height*0.256,
+            child: UserAccountsDrawerHeader(
+              accountName: Text(username!=null?username:"User name" ,textAlign: TextAlign.start,style: TextStyle(fontSize: 17.0),),
+//              accountEmail: Text(""),
+              currentAccountPicture: GestureDetector(
+                child:CircleAvatar(
+
+                  backgroundColor: Colors.teal[700],
+                  backgroundImage:userimage!=null?NetworkImage(userimage):NetworkImage(
+                     "https://www.pngkey.com/png/full/270-2707230_i-am-a-founder-woman-user-icon.png"//                color: Colors.black,
+                ),
+                )
               ),
-              )
+              decoration: new BoxDecoration(
+                color: Colors.teal[700],
+//                image: new DecorationImage(
+//
+////                    image:AssetImage("images/bg.jpg"),
+//                    fit: BoxFit.cover
+//                )
+              ),
             ),
-            decoration: BoxDecoration(color: Colors.teal[700]),
           ),
           InkWell(
             onTap: () {

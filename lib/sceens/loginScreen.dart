@@ -45,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
     String username = _usernameController.text;
     String password = _passwordController.text;
     var isEmail = RegExp(
-        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+        r"^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
     bool isValidEmail = isEmail.hasMatch(username);
     if (isValidEmail != true) {
       username = '+91$username';
@@ -58,17 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       final responseData = json.decode(response.body);
       var userData = json.decode(responseData['data']);
-      // print("@#@#@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-      // print(userData);
-      // print(userData['firstName']);
-      // print(userData['mobileNo']);
-      // print(userData['profilePicUrl']);
-      // print(userData['profileKey']);
-      // print(userData['password']);
-      // print('############################');
-
-
-      if (response.statusCode == HttpStatus.ok) {
+         if (response.statusCode == HttpStatus.ok) {
         // print('login successful');
         setUserDetailsLocal(userData['firstName'], userData['mobileNo'],
             userData['profilePicUrl'],  userData['profileKey'],password);
@@ -102,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Container(
                 height: 200,
                 width: 200,
-                child: Image.asset('images/areameasure.png'),
+                child: Image.asset('images/GeoFence.png'),
               ),
             ),
             Container(

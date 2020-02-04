@@ -33,7 +33,7 @@ class _LandingpageState extends State<Landingpage> {
                   flex: 2,
                   child: Container(
                     child: Image.asset(
-                      'images/areameasure.png',
+                      'images/GeoFence.png',
                       width: 300,
                       height: 300,
                     ),

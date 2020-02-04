@@ -79,7 +79,6 @@ class Auth with ChangeNotifier {
       );
       final responseData = json.decode(response.body);
       var userData = json.decode(responseData['data']);
-      print("${response.statusCode} == ${HttpStatus.ok}");
       if (responseData['code'] == HttpStatus.ok) {
         // print('===> logged-in');
         setUserDetailsLocal(userData['firstName'], userData['mobileNo'],
