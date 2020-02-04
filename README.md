@@ -1,7 +1,7 @@
 # GeoFence
 
-Geo Fence is an cross plaotform application developed in Flutter-Dart supporting language.with this application user can able to caliculate the area of the land by walking around the boundaries.
-User can able to caliculate the area and the user can able to to see the area he/she already covered in previous.
+Geo Fence is an cross plaotform application developed in Flutter-Dart supporting language. With this application user can able to calculate the area of the land by walking around the boundaries.
+User can able to calculate the area and the user can able to to see the list of areas already covered in previous.
 
 
 ## Getting Started
@@ -10,7 +10,7 @@ User can able to caliculate the area and the user can able to to see the area he
 ### Step 1:
 Run the command to clone the project: git clone "https://github.com/techieareef/geofence.git".
 ### step 2:
-Move to Geofence directory and configure the frame work in (Android Studio).
+Move to Geofence directory and configure the frame work.
 ### step 3:
 Run the command to get / upgrade the dependencies: "flutter pub get".
 ### step 4:
