@@ -6,8 +6,8 @@ User can able to caliculate the area and the user can able to to see the area he
 
 ## Getting Started
 
-Steps to install the Repository:
-Step 1:
+Steps to install the Repository:\n
+Step 1:\n
 Run the command to clone the project: git clone "https://github.com/techieareef/geofence.git"
 step 2:
 Move to Geofence directory and configure the frame work in (Android Studio)
