@@ -16,7 +16,7 @@ Run the command to get / upgrade the dependencies: "flutter pub get"
 ### step 4:
 Finally before running the project clear the build : "flutter clean"
 ### step 5:
-Here you go :flutter run to start the project.
+Here you go :"flutter run" to start the project.
 ### step 6:
-If you face any issue run the: "flutter doctor"
+If you face any issue run: "flutter doctor"
 
