@@ -1,4 +1,3 @@
-import 'package:Area_finder/providers/checklogin.dart';
 import 'package:Area_finder/sceens/Viewdetails.dart';
 import 'package:Area_finder/sceens/capturedArea.dart';
 import 'package:Area_finder/sceens/landingpage.dart';
@@ -47,8 +46,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ViewMaps(
         profilekey: profilekey ,
       ));
-    case Test:
-      return MaterialPageRoute(builder: (context) => checklogin());
     default:
       return MaterialPageRoute(
           builder: (context) => UndefinedView(name: settings.name));

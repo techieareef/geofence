@@ -80,9 +80,7 @@ class _CapturedAreaState extends State<CapturedArea> {
 
   Future<void> _saveCalculatedArea (
       {String userId, profilekey, username, password} ) async {
-    print ( "============= _userid======" );
-    print ( "$userId, $profilekey, $username, $password,:" + _markedFor.text );
-    print ( userId.split ( '+' )[1].toString ( ) );
+
     const url =
         'http://www.devkalgudi.vasudhaika.net/rest/v1/profiles/data/geofence';
     try {
@@ -112,14 +110,12 @@ class _CapturedAreaState extends State<CapturedArea> {
       print ( 'error message: ${e.message}' );
       throw e;
     }
-    print ( _connectionStatus == ConnectivityResult.wifi.toString ( ) );
 
     SharedPreferences pref = await SharedPreferences.getInstance ( );
     pref.setString ( 'calculatedArea',
         widget.calculatedArea.toString ( ) ); //Storing data in localStorage
     String calculatedArea =
     pref.getString ( 'calculatedArea' ); //geting data from localStorage
-    print ( calculatedArea );
 
     if ( _connectionStatus == ConnectivityResult.wifi.toString ( ) ||
         _connectionStatus == ConnectivityResult.mobile.toString ( ) ) {
@@ -128,14 +124,12 @@ class _CapturedAreaState extends State<CapturedArea> {
       //  ToDo: send data to server
 
       pref.remove ( 'calculatedArea' );
-      print ( calculatedArea );
     }
   }
 
   saveLoallyStoredData ( ) async {
     SharedPreferences pref = await SharedPreferences.getInstance ( );
     String calculatedArea = pref.getString ( 'calculatedArea' );
-    print ( 'saveLoallyStoredData: $calculatedArea' );
     if ( calculatedArea.isEmpty ) {
       // _saveCalculatedArea();
     }
@@ -148,8 +142,6 @@ class _CapturedAreaState extends State<CapturedArea> {
     // saveLoallyStoredData();
     // _saveCalculatedArea();
     convertLatLongToJson ( );
-    print ( 'init state:===>' );
-    print ( setJsonToLatlong );
     addMarkers ( );
     BitmapDescriptor.fromAssetImage (
         ImageConfiguration ( size: Size ( 20, 20 ) ), 'images/dot.png' )
@@ -175,16 +167,11 @@ class _CapturedAreaState extends State<CapturedArea> {
     SharedPreferences prefs = await SharedPreferences.getInstance ( );
 
 
-    print ( '&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&' );
     setState ( ( ) {
       username = prefs.getString ( "userName" );
       contact = prefs.getString ( "userId" );
       userimage = prefs.getString ( "image" );
       profilekey = prefs.getString ( "profileKey" );
-      print ( username );
-      print ( contact );
-      print ( prefs.getString ( "image" ), );
-      print ( prefs.getString ( "profileKey" ), );
     } );
 //    @override
 //    void dispose ( ) {
@@ -250,7 +237,7 @@ class _CapturedAreaState extends State<CapturedArea> {
                                           controller: _markedFor,
                                           autofocus: true,
                                           decoration: InputDecoration (
-                                              labelText: 'Email| Phone' ),
+                                              labelText: 'Email | Phone' ),
                                         ) ),
                                   ],
                                 ),

@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:Area_finder/providers/auth_provider.dart';
 import 'package:Area_finder/sceens/appebarewid.dart';
 import 'package:Area_finder/sceens/routing%20Constants.dart';
+import 'package:Area_finder/sceens/sidemenu.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -29,19 +30,24 @@ class _ViewMapsState extends State<ViewMaps> {
   }
 
   Future<String> getJsonData() async {
-    print("==========profilekey=========");
-    print((widget.profilekey));
+//    print("==========profilekey=========");
+//    print((widget.profilekey));
     response = await http.get(
         Uri.encodeFull(
             "http://www.devkalgudi.vasudhaika.net/rest/v1/profiles/data/geofence?markedBy="+widget.profilekey),
         headers: {"Accept": "application/json"});
     jsondata = json.decode(response.body);
     this.setState(() {
-      data = jsonDecode(jsondata['data']);
+      try {
+        data = jsonDecode ( jsondata['data'] );
+      }catch (e){
+      data =[];}
+
       data=data.reversed.toList();
       print('*--*-*-*-*-*-*-*-*-*--**-*-*-*-*-');
-      print(data);
+      print(data.length);
       datalength=data.length;
+
     });
 
     return "success";
@@ -51,10 +57,11 @@ class _ViewMapsState extends State<ViewMaps> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+        endDrawer: Drawers(),
         appBar: MyAppBar(
           falg: true,
         ),
-        body: Container(
+        body: datalength!=0?Container(
           color: Colors.white,
           child: RefreshIndicator(
             color: Colors.white,
@@ -64,7 +71,7 @@ class _ViewMapsState extends State<ViewMaps> {
 
 //            reverse: true,
               scrollDirection: Axis.vertical,
-              itemCount: datalength,
+              itemCount: datalength!=null?datalength:0,
               shrinkWrap: true,
               itemBuilder: (context, i) {
                 return Container(
@@ -242,7 +249,7 @@ class _ViewMapsState extends State<ViewMaps> {
                               elevation: 20.0,
                               backgroundColor: Colors.transparent.withOpacity(0.0),
                               onPressed: (){
-                                print('next screen pressed'+data[i]['latlongs'].toString());
+//                                print('next screen pressed'+data[i]['latlongs'].toString());
                                 Navigator.pushNamed(context, CapturedAreaRoute, arguments: {
                                   'polyPoints': data[i]['latlongs'],
                                   'calculatedArea': (data[i]['area']).toString(),
@@ -265,6 +272,6 @@ class _ViewMapsState extends State<ViewMaps> {
               },
             ),
           ),
-        ));
+        ):Container(child: Center(child: Text("No Records Found...",style: TextStyle(fontSize: 16.0),),),));
   }
 }
