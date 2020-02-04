@@ -8,15 +8,15 @@ User can able to caliculate the area and the user can able to to see the area he
 
 ## Steps to install the Repository:
 ### Step 1:
-Run the command to clone the project: git clone "https://github.com/techieareef/geofence.git"
+Run the command to clone the project: git clone "https://github.com/techieareef/geofence.git".
 ### step 2:
-Move to Geofence directory and configure the frame work in (Android Studio)
+Move to Geofence directory and configure the frame work in (Android Studio).
 ### step 3:
-Run the command to get / upgrade the dependencies: "flutter pub get"
+Run the command to get / upgrade the dependencies: "flutter pub get".
 ### step 4:
-Finally before running the project clear the build : "flutter clean"
+Finally before running the project clear the build : "flutter clean".
 ### step 5:
 Here you go :"flutter run" to start the project.
 ### step 6:
-If you face any issue run: "flutter doctor"
+If you face any issue run: "flutter doctor".
 
