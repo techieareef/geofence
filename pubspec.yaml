@@ -1,5 +1,5 @@
 name: Area_finder
-description: To caliculeate the area of the polygon shape fields.
+description: To caliculeate the area of the polygon shape fields..
 
 dependencies:
   flutter:
